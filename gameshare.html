@@ -103,12 +103,11 @@
     }
 
     function openQuickGame(){
-        //location.href = url_quick_game;
-        window.open(url_quick_game)
+        location.href = url_quick_game;
         const t = Date.now();
         setTimeout(function () {
             if (Date.now() - t < 1200){
-                window.open('http://www.baidu.com')
+                location.href = 'https://www.baidu.com';
             }
         },1000);
     }
