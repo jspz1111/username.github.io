@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<style>
+
+    .wxtip {
+        background: rgba(0, 0, 0, 0.8);
+        text-align: center;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 998;
+        display: none;
+    }
+
+    .wxtip {
+        background: rgba(0, 0, 0, 0.8);
+        text-align: center;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 998;
+        display: none;
+    }
+
+    .wxtip-icon {
+        width: 52px;
+        height: 67px;
+        background: url(weixin-tip.png) no-repeat;
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+
+    .wxtip-txt {
+        margin-top: 107px;
+        color: #fff;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .open-game-div {
+        background: #5c96dd;
+        width: 100%;
+        height: 30px;
+        position: fixed;
+        top: 0;
+        opacity:0.9;
+        align-content: center;
+    }
+
+    .span-open-game{
+        color: crimson;
+        font-size: 20px;
+        float: right;
+        margin-right: 50px;
+        align-content: center;
+    }
+
+</style>
+<body>
+
+<div class="open-game-div">
+    <a id="open-game-button"><span class="span-open-game">打开游戏</span></a>
+
+</div>
+
+<div class="wxtip" id="JweixinTip">
+    <span class="wxtip-icon"></span>
+    <p class="wxtip-txt">点击右上角<br/>选择在浏览器中打开</p>
+</div>
+
+</body>
+</html>
+
+<script>
+
+    let ua = navigator.userAgent;
+    let url_quick_game = "http://quickgame/22424";
+    let url_happy_play = "haplay://sfhaifh/sff2";
+
+    document.querySelector('#open-game-button').onclick = function (ele) {
+        const isWeixin = !!/MicroMessenger/i.test(ua);
+        if (isWeixin) {
+            ele.onclick = function (e) {
+                document.querySelector('#JweixinTip').style.display = 'block';
+            }
+            document.querySelector('#JweixinTip').onclick = function () {
+                this.style.display = 'none';
+            }
+        } else {
+            openQuickGame();
+        }
+    }
+
+    function openQuickGame(){
+        //location.href = url_quick_game;
+        window.open(url_quick_game)
+        const t = Date.now();
+        setTimeout(function () {
+            if (Date.now() - t < 1200){
+                window.open('http://www.baidu.com')
+            }
+        },1000);
+    }
+
+</script>
