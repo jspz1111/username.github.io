@@ -19,22 +19,8 @@
         display: none;
     }
 
-    .wxtip {
-        background: rgba(0, 0, 0, 0.8);
-        text-align: center;
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 998;
-        display: none;
-    }
-
     .wxtip-icon {
-        width: 52px;
-        height: 67px;
-        background: url(./imgs/open_outside.png) no-repeat;
+        background: url(./imgs/open_outside.png);
         display: block;
         position: absolute;
         right: 20px;
@@ -63,17 +49,24 @@
         padding-right: 30px;
     }
 
+    #game-content{
+        width: 100%;
+    }
+
 </style>
 <body>
-
-<div class="open-game-div">
-    <img id="open-game-button" src="imgs/button_icon.png" class="img-open"/>
-
-</div>
 
 <div class="wxtip" id="JweixinTip">
     <span class="wxtip-icon"></span>
     <p class="wxtip-txt">点击右上角<br/>选择在浏览器中打开</p>
+</div>
+
+<div id="game-content">
+    <img src="imgs/youxi_bg.png" width="100%">
+</div>
+
+<div class="open-game-div">
+    <img id="open-game-button" src="imgs/button_icon.png" class="img-open"/>
 </div>
 
 </body>
@@ -85,12 +78,11 @@
     let url_quick_game = "quickgame://quickgame/22424";
     let url_happy_play = "vivogame://hybrid/gamecontent?game_id=101&game_package='com.fly.bird'";
     let apkDownloadUrl = 'https://jspz1111.github.io/username.github.io/happy_game.apk'
+
     document.querySelector('#open-game-button').onclick = function (ele) {
         const isWeixin = !!/MicroMessenger/i.test(ua);
-        if (isWeixin) {
-            ele.onclick = function (e) {
-                document.querySelector('#JweixinTip').style.display = 'block';
-            }
+        if (!isWeixin) {
+            document.querySelector('#JweixinTip').style.display = 'block';
             document.querySelector('#JweixinTip').onclick = function () {
                 this.style.display = 'none';
             }
