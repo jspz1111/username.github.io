@@ -34,7 +34,7 @@
     .wxtip-icon {
         width: 52px;
         height: 67px;
-        background: url(weixin-tip.png) no-repeat;
+        background: url(./imgs/open_outside.png) no-repeat;
         display: block;
         position: absolute;
         right: 20px;
@@ -49,28 +49,25 @@
     }
 
     .open-game-div {
-        background: #5c96dd;
+        background: url(./imgs/top_bg.png);
         width: 100%;
-        height: 50px;
         position: fixed;
         top: 0;
         opacity:0.9;
         align-content: center;
     }
 
-    .span-open-game{
-        color: crimson;
-        font-size: 20px;
+    .img-open{
         float: right;
-        margin-right: 50px;
-        align-content: center;
+        padding: 10px;
+        padding-right: 30px;
     }
 
 </style>
 <body>
 
 <div class="open-game-div">
-    <a id="open-game-button"><span class="span-open-game">打开游戏</span></a>
+    <img id="open-game-button" src="imgs/button_icon.png" class="img-open"/>
 
 </div>
 
