@@ -81,7 +81,7 @@
 
     document.querySelector('#open-game-button').onclick = function (ele) {
         const isWeixin = !!/MicroMessenger/i.test(ua);
-        if (!isWeixin) {
+        if (isWeixin) {
             document.querySelector('#JweixinTip').style.display = 'block';
             document.querySelector('#JweixinTip').onclick = function () {
                 this.style.display = 'none';
