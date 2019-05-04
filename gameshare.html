@@ -103,23 +103,52 @@
     }
 
     function openQuickGame(){
-        var t = Date.now();
-        location.href = url_quick_game;
-        setTimeout(function () {
-            if (Date.now() - t < 1200){
+
+        var start = new Date();//记录初始时间
+        var t = 500;
+        var ifr = document.createElement('iframe');
+        ifr.src = url_quick_game;//打开app
+        document.body.appendChild(ifr);
+        ifr.onload = function() {
+        };
+        ifr.style.display='none';
+        setTimeout(function() {
+            document.body.removeChild(ifr);
+            var end = new Date();//记录结束时间
+            console.log(end - start)
+            if (end - start <= (t + 30)) {//两者之差小于30ms时跳转到下载页
                 openHappyGame();
             }
-        },1000);
+
+        }, t);
     }
 
     function openHappyGame(){
-        var t = Date.now();
-        location.href = url_happy_play;
-        setTimeout(function () {
-            if (Date.now() - t < 1200){
-                location.href = apkDownloadUrl;
+        // var t = Date.now();
+        // location.href = url_happy_play;
+        // setTimeout(function () {
+        //     if (Date.now() - t < 1200){
+        //         location.href = apkDownloadUrl;
+        //     }
+        // },1000);
+
+        var start = new Date();//记录初始时间
+        var t = 500;
+        var ifr = document.createElement('iframe');
+        ifr.src = url_happy_play;//打开app
+        document.body.appendChild(ifr);
+        ifr.onload = function() {
+        };
+        ifr.style.display='none';
+        setTimeout(function() {
+            document.body.removeChild(ifr);
+            var end = new Date();//记录结束时间
+            console.log(end - start)
+            if (end - start <= (t + 30)) {//两者之差小于30ms时跳转到下载页
+                window.location.href = apkDownloadUrl;
             }
-        },1000);
+
+        }, t);
     }
 
 </script>
