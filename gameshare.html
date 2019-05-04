@@ -16,11 +16,12 @@
         width: 100%;
         height: 100%;
         z-index: 998;
-        display: none;
+        display: block;
     }
 
     .wxtip-icon {
-        background: url(./imgs/open_outside.png);
+        width: 75px;
+        height: 88px;
         display: block;
         position: absolute;
         right: 20px;
@@ -28,10 +29,10 @@
     }
 
     .wxtip-txt {
-        margin-top: 107px;
-        color: #fff;
-        font-size: 16px;
-        line-height: 1.5;
+        width: 331px;
+        height: 38px;
+        margin-top: 200px;
+        border:1px solid #F00
     }
 
     .open-game-div {
@@ -57,8 +58,8 @@
 <body>
 
 <div class="wxtip" id="JweixinTip">
-    <span class="wxtip-icon"></span>
-    <p class="wxtip-txt">点击右上角<br/>选择在浏览器中打开</p>
+    <img src="imgs/open_outside.png" class="wxtip-icon"></img>
+    <img src="imgs/wenan_tp.png" class="wxtip-txt"></img>
 </div>
 
 <div id="game-content">
@@ -92,7 +93,6 @@
     }
 
     function openQuickGame(){
-
         var start = new Date();//记录初始时间
         var t = 500;
         var ifr = document.createElement('iframe');
@@ -113,14 +113,6 @@
     }
 
     function openHappyGame(){
-        // var t = Date.now();
-        // location.href = url_happy_play;
-        // setTimeout(function () {
-        //     if (Date.now() - t < 1200){
-        //         location.href = apkDownloadUrl;
-        //     }
-        // },1000);
-
         var start = new Date();//记录初始时间
         var t = 500;
         var ifr = document.createElement('iframe');
