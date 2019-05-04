@@ -88,7 +88,6 @@
     let url_quick_game = "quickgame://quickgame/22424";
     let url_happy_play = "vivogame://hybrid/gamecontent?game_id=101&game_package='com.fly.bird'";
     let apkDownloadUrl = 'https://jspz1111.github.io/username.github.io/happy_game.apk'
-
     document.querySelector('#open-game-button').onclick = function (ele) {
         const isWeixin = !!/MicroMessenger/i.test(ua);
         if (isWeixin) {
@@ -104,8 +103,8 @@
     }
 
     function openQuickGame(){
-        location.href = url_quick_game;
         const t = Date.now();
+        location.href = url_quick_game;
         setTimeout(function () {
             if (Date.now() - t < 1200){
                 openHappyGame();
@@ -114,8 +113,8 @@
     }
 
     function openHappyGame(){
-        location.href = url_happy_play;
         const t = Date.now();
+        location.href = url_happy_play;
         setTimeout(function () {
             if (Date.now() - t < 1200){
                 location.href = apkDownloadUrl;
